@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pets Home</title>
+    <!-- daisy and tailwind cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.22/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font cdn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    },
+                    fontFamily: {
+                        lato: 'lato',
+                    }
+
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-lato">
+    <header>
+        <!-- nav start -->
+        <nav class="container mx-auto">
+
+            <div class="navbar bg-base-100">
+                <div class="navbar-start">
+                    <div class="dropdown">
+                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h8m-8 6h16" />
+                            </svg>
+                        </div>
+                        <ul tabindex="0"
+                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            <li><a>Home</a></li>
+                            <li><a>Shop</a></li>
+                            <li><a>Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="flex gap-2 items-center">
+                        <img class="object-cover" src="images/logo.webp" alt="">
+                        <h1 class="font-bold text-2xl">Peddy</h1>
+                    </div>
+                </div>
+                <div class="navbar-center hidden lg:flex">
+                    <ul class="menu menu-horizontal px-1">
+                        <li><a>Home</a></li>
+                        <li><a>Shop</a></li>
+                        <li><a>Contact</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-end">
+                    <a class="btn rounded-full"><i class="fa-regular fa-user"></i></a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- nav end -->
+        <!-- spinner -->
+
+        <!-- spinner -->
+
+        <!-- content header starts -->
+        <div class="container mx-auto text-center space-y-4 mt-5">
+            <p class="text-gray-400 text-lg">Bringing Families Together ❤️‍🔥</p>
+            <h1 class="text-5xl font-bold text-gray-900">Your Path to Adoption <br> Starts Here</h1>
+            <p class="text-gray-600">From our shop you can adopt the unwanted pets and you can buy some unique pet. <br>
+                We
+                provide the medical
+                support for the pets as well</p>
+
+            <a onclick="location.href='#section2'" class="btn bg-green-950 text-white">View More</a>
+
+            <div class="w-7/12 mx-auto">
+                <img class="w-full" src="images/pet.webp" alt="">
+            </div>
+
+
+        </div>
+        <!-- content header ends -->
+    </header>
+
+    <main class="container mx-auto my-8">
+        <!-- adobt bestie starts -->
+        <section id="section2" class="my-10 text-center space-y-6">
+            <h1 class="text-5xl font-bold text-gray-950 ">Adopt Your Best Friend</h1>
+            <p>Pets are our best friend. If you can found a good choice for you from us you will love your pet forever.
+                <br>
+                It is the right opportunity to adopt a right choice now
+            </p>
+
+        </section>
+        <!-- adobt bestie ends -->
+        <section id="btn-container" class="w-7/12 mx-auto grid grid-cols-1 lg:grid-cols-4 gap-10">
+            <!-- <button class="btn btn-md bg-transparent rounded-lg">category1</button>
+            
+        <button class="btn bg-transparent rounded-lg">category2</button>    <button class="btn bg-transparent rounded-lg">category3</button>
+            <button class="btn bg-transparent rounded-lg">category4</button> -->
+        </section>
+        <!-- best deals section -->
+
+        <section class="flex justify-between items-center mt-8">
+            <h1 class="font-bold text-xl text-gray-700">Best deals for you</h1>
+            <button id="sortedData" onclick="sort()" class="btn text-white bg-green-950">Sort By Price</button>
+        </section>
+        <!-- spinner starts -->
+        <div id="loader" class="hidden">
+            <div class="relative flex justify-center items-center my-5">
+                <div class="absolute animate-spin rounded-full h-10 w-10 border-t-4 border-b-4 border-teal-700"></div>
+                <img src="images/logo.webp" class="rounded-full h-5 w-5">
+            </div>
+        </div>
+        <!-- spinner ends -->
+        <!-- post container starts -->
+        <section class="grid lg:grid-cols-12 grid-cols-1 gap-2">
+
+            <!-- left div starts -->
+            <div id="mainPetsContainer" class="lg:col-span-8 border rounded-xl grid gap-2 lg:grid-cols-3">
+                <!-- card body style -->
+                <!-- <div class="card card-compact bg-base-100 w-96 shadow-xl">
+                    <figure>
+                        <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                            alt="pet" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title">Tile</h2>
+                        <p class="space-x-2"><i class="fa-brands fa-figma"></i><span>Breed Name : ${}</span></p>
+                        <p class="space-x-2"><i class="fa-solid fa-cake-candles"></i><span>Birth : ${}</span></p>
+                        <p class="space-x-2"><i class="fa-solid fa-mercury"></i><span>Gender : ${}</span></p>
+                        <p class="space-x-2"><i class="fa-solid fa-dollar-sign"></i><span>Price : ${}</span></p>
+                        <div class="divider"></div>
+                        <div class="grid grid-cols-3 gap-1">
+                            <button class="btn btn-sm"><i class="fa-regular fa-heart"></i></button>
+                            <button class="btn btn-sm text-green-950">Adopt</button>
+                            <button class="btn btn-sm text-green-950">Details</button>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- card end -->
+            </div>
+            <!-- left div ends -->
+
+
+
+            <!-- right div starts -->
+            <div id="selectedPetsContainer" class="lg:col-span-4 gap-3 h-fit border rounded-xl grid grid-cols-2">
+
+                <!-- imagesss -->
+
+            </div>
+
+            <!-- right div ends -->
+
+        </section>
+
+        <!-- post container ends -->
+    </main>
+    <!-- modal starts -->
+
+    <!-- You can open the modal using ID.showModal() method -->
+
+    <dialog id="detailsModal" class="modal">
+        <div id="modalContainer" class="modal-box">
+            <!-- <h3 class="text-lg font-bold">Hello!</h3>
+            <p class="py-4">Click the button below to close</p> -->
+
+        </div>
+        </div>
+    </dialog>
+    <!-- modal ends -->
+
+    <!-- adoption Modal starts -->
+    <!-- You can open the modal using ID.showModal() method -->
+
+    <dialog id="my_modal_3" class="modal">
+        <div class="modal-box w-11/12 max-w-3xl text-center">
+            <p class="py-1 text-5xl">🏌️</p>
+            <h3 class="text-lg font-bold">Congrats</h3>
+            <p class="py-2">Adoption will be done in</p>
+            <p id="countdown-counter" class="py-2 text-xl text-amber-800 font-bold">3</p>
+            <form method="dialog" class="modal-backdrop">
+                <button>close</button>
+            </form>
+        </div>
+    </dialog>
+
+
+    <!-- adoption modal ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="footer bg-gray-950 text-white p-10">
+
+        <nav>
+            <div class="flex gap-2 items-center">
+                <img class="object-cover" src="images/logo.webp" alt="">
+                <h1 class="font-bold text-2xl">Peddy</h1>
+            </div>
+            <a class="link link-hover">
+                <address>Location: Road-10, House-46&48, Aftabnagar, Dhaka-1219</address>
+            </a>
+            <a class="link link-hover">Phone: +8801841247114</a>
+            <a class="link link-hover">Email: iftiaqhossain@gmail.com</a>
+            <a class="link link-hover">Operation Hours: 8am - 12pm</a>
+            <div class="space-x-5">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+            </div>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Useful Links</h6>
+            <a class="link link-hover">Home</a>
+            <a class="link link-hover">About Us</a>
+            <a class="link link-hover">Animals</a>
+            <a class="link link-hover">Foundation</a>
+            <a class="link link-hover">Contact</a>
+        </nav>
+        <form>
+            <h6 class="footer-title">DROP A MESSAGE</h6>
+            <fieldset class="form-control w-80">
+
+                <div>
+                    <input class="text-white p-4 rounded-xl w-9/12" type="text" placeholder="Enter Your Email"
+                        class="input input-bordered" /><br>
+                    <button class="btn bg-green-950 text-white border-none w-9/12">Subscribe</button>
+                </div>
+            </fieldset>
+        </form>
+    </footer>
+
+
+
+    <script src="app/utilities.js"></script>
+    <script src="app/app.js"></script>
+</body>
+
+</html>
